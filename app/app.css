@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+}
+html *, html *:before, html *:after {
+  box-sizing: inherit;
+}
+
+/* app css stylesheet */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.form-input {
+  padding: 8px;
+  height: 42px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+textarea.form-input {
+  height: 90px;
+}
+
+.form-entry {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.label {
+  font-weight: 700;
+  display: block;
+}
+
+.row {
+  display: flex;
+  margin: 0 -20px;
+}
+.grid {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.site-footer {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding: 40px 0;
+}
+.footnote {
+  font-size: .8rem;
+  color: #888;
+}

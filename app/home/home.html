@@ -1,0 +1,38 @@
+<div class="container">
+	<form ng-submit="submitEntry()">
+		<div class="row">
+			<div class="grid">
+				<div class="form-entry">
+					<label class="label" for="entryDate">Date</label>
+					<input class="form-input" ng-model="entry.entryDate" type="date" id="entryDate" />
+				</div>
+				
+			</div>
+			<div class="grid">
+				<div class="form-entry">
+					<label class="label" for="entryTime">Amount of Time</label>
+					<input class="form-input" ng-model="entry.entryTime" type="text" id="entryTime" placeholder="3" />
+				</div>
+			</div>
+		</div>
+		<div class="form-entry">
+			<label class="label" for="entryDescription">Description</label>
+			<textarea class="form-input" ng-model="entry.entryDescription" id="entryDescription" placeholder="Updated header.css"></textarea>
+		</div>
+		<div class="form-entry">
+			<input type="submit" value="Submit Entry" />
+		</div>
+	</form>
+
+	<div ng-repeat="entry in entries | orderBy:'entryDate':true">
+		{{ entry.entryDate }}
+		{{ entry.entryTime }}
+		{{ entry.entryDescription }}
+	</div>
+
+	
+	
+	
+	
+	
+</div>

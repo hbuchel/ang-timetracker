@@ -16,9 +16,15 @@
 </head>
 <body>
 
-  <header>
+  <header class="site-header">
     <div class="container">
-      <h1>TimeTracker</h1>
+      <div class="group">
+        <h1 class="site-logo">TimeTracker</h1>
+        <nav>
+          <a href="/app/#/">Time</a>
+          <a href="/app/#/projects">Projects</a>
+        </nav>
+      </div>
     </div>
   </header>  
 
@@ -39,12 +45,16 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="home/home.js"></script>
+  <script src="projects/projects.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/factories/service.js"></script>
 </body>
 </html>

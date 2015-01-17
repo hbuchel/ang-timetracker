@@ -1,29 +1,41 @@
 'use strict';
 
-angular.module('timetrack.home', ['ngRoute'])
+angular.module('timetrack.entry', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'home/home.html',
-    controller: 'HomeCtrl'
+    controller: 'EntryCtrl'
   });
 }])
 
-.controller('HomeCtrl', function($scope) {
-	$scope.entries = [];
+.controller('EntryCtrl', function($scope, Entry, Project) {
+	$scope.showSidebar = false;
 
-	$scope.entry = {
+	$scope.toggleSidebar = function() {
+		$scope.showSidebar = !$scope.showSidebar;
+	}
+
+	$scope.entries = Entry.all;
+
+	$scope.projects = Project.all;
+
+	$scope.Entry = {
 		entryTime: '',
 		entryDate: '',
 		entryDescription: ''
 	};
 
 	$scope.submitEntry = function() {
-		$scope.entries.push($scope.entry);
-		$scope.entry = {
-			entryTime: '',
-			entryDate: '',
-			entryDescription: ''
-		};
+		Entry.create($scope.entry).then( function() {
+			$scope.entry = {
+				entryTime: '',
+				entryDate: '',
+				entryDescription: ''
+			}
+		});
+	}
+	$scope.deleteEntry = function (entry) {
+		Entry.delete(entry);
 	}
 });

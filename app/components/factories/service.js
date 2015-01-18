@@ -41,4 +41,9 @@ angular.module('timetrack.auth', [])
 	}
 
 	return Project;
-});
+})
+
+.factory("Auth", ["$firebaseAuth", function($firebaseAuth) {
+	var ref = new Firebase('https://amber-torch-4197.firebaseio.com');
+	return $firebaseAuth(ref);
+}]);

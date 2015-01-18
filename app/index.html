@@ -14,15 +14,17 @@
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
+<body ng-controller="GlobalCtrl">
 
   <header class="site-header">
     <div class="container">
       <div class="group">
         <h1 class="site-logo">TimeTracker</h1>
         <nav>
-          <a href="/app/#/">Time</a>
-          <a href="/app/#/projects">Projects</a>
+          <a class="nav-link" href="/app/#/">Time</a>
+          <a class="nav-link" href="/app/#/projects">Projects</a>
+          
+          <a class="nav-link" ng-show="user" ng-click="logout()">Logout</a>
         </nav>
       </div>
     </div>
@@ -48,6 +50,7 @@
   <script src="bower_components/firebase/firebase.js"></script>
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="app.js"></script>
+  <script src="global/global.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="home/home.js"></script>

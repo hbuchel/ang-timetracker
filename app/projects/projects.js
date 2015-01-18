@@ -18,10 +18,6 @@ angular.module('timetrack.projects', ['ngRoute'])
 		projectName: ''
 	};
 
-	angular.forEach(Project.all, function(value, key)) {
-		
-	}
-
 	$scope.submitProject = function() {
 		console.log("Submitted Project");
 		Project.create($scope.project).then( function() {

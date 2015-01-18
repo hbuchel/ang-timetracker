@@ -191,8 +191,10 @@ table tbody tr:nth-child(2n+2) td {
   width: 70%;
 }
 
-nav a {
+.nav-link {
   display: inline-block;
+  background: none;
+  border: none;
   text-decoration: none;
   padding: 10px;
   color: #111;

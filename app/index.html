@@ -14,11 +14,19 @@
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
+<body ng-controller="GlobalCtrl">
 
-  <header>
+  <header class="site-header">
     <div class="container">
-      <h1>TimeTracker</h1>
+      <div class="group">
+        <h1 class="site-logo">TimeTracker</h1>
+        <nav>
+          <a class="nav-link" href="/app/#/">Time</a>
+          <a class="nav-link" href="/app/#/projects">Projects</a>
+          
+          <a class="nav-link" ng-show="user" ng-click="logout()">Logout</a>
+        </nav>
+      </div>
     </div>
   </header>  
 
@@ -39,12 +47,18 @@
   -->
   <script src="/ang-timetracker/app/bower_components/angular/angular.js"></script>
   <script src="/ang-timetracker/app/bower_components/angular-route/angular-route.js"></script>
+  <script src="/ang-timetracker/app/bower_components/firebase/firebase.js"></script>
+  <script src="/ang-timetracker/app/bower_components/angularfire/dist/angularfire.js"></script>
   <script src="/ang-timetracker/app/app.js"></script>
+  <script src="/ang-timetracker/app/global/global.js"></script>
   <script src="/ang-timetracker/app/view1/view1.js"></script>
   <script src="/ang-timetracker/app/view2/view2.js"></script>
   <script src="/ang-timetracker/app/home/home.js"></script>
+  <script src="/ang-timetracker/app/projects/projects.js"></script>
   <script src="/ang-timetracker/app/components/version/version.js"></script>
   <script src="/ang-timetracker/app/components/version/version-directive.js"></script>
   <script src="/ang-timetracker/app/components/version/interpolate-filter.js"></script>
+  <script src="/ang-timetracker/app/components/factories/service.js"></script>
+
 </body>
 </html>

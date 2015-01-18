@@ -1,38 +1,79 @@
 <div class="container">
-	<form ng-submit="submitEntry()">
-		<div class="row">
-			<div class="grid">
+	<div class="group">
+		<button type="button" class="toggle-button" ng-click="toggleSidebar()">
+			<svg class="toggle-icon" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			   	<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			        <path d="M25.1071429,25.1071429 L32.5,25.1071429 L32.5,16.8928571 L25.1071429,16.8928571 L25.1071429,9.5 L16.8928571,9.5 L16.8928571,16.8928571 L9.5,16.8928571 L9.5,25.1071429 L16.8928571,25.1071429 L16.8928571,32.5 L25.1071429,32.5 L25.1071429,25.1071429 Z M0,0 L42,0 L42,42 L0,42 L0,0 Z" id="Rectangle-1" fill="currentColor"></path>
+			    </g>
+			</svg>
+		</button>
+		<div class="form-entry">
+			<label for="entryProject" class="label">Choose a Project</label>
+			<select class="form-select" ng-model="entry.entryProject">
+				<option value="">All Projects</option>
+				<option ng-repeat="project in projects" value="{{project.projectName}}">{{project.projectName}}</option>
+			</select>
+		</div>
+	</div>
+	<div class="layout">
+		<div class="sidebar" ng-class="{'open': showSidebar}">
+			<h2>Add Time Entry</h2>
+			<form>
 				<div class="form-entry">
 					<label class="label" for="entryDate">Date</label>
 					<input class="form-input" ng-model="entry.entryDate" type="date" id="entryDate" />
 				</div>
 				
-			</div>
-			<div class="grid">
+			
 				<div class="form-entry">
 					<label class="label" for="entryTime">Amount of Time</label>
 					<input class="form-input" ng-model="entry.entryTime" type="text" id="entryTime" placeholder="3" />
 				</div>
-			</div>
+					
+				<div class="form-entry">
+					<label class="label" for="entryDescription">Description</label>
+					<textarea class="form-input" ng-model="entry.entryDescription" id="entryDescription" placeholder="Updated header.css"></textarea>
+				</div>
+				<div class="form-entry">
+					<input type="submit" ng-click="submitEntry()" value="Submit Entry" />
+				</div>
+			</form>
 		</div>
-		<div class="form-entry">
-			<label class="label" for="entryDescription">Description</label>
-			<textarea class="form-input" ng-model="entry.entryDescription" id="entryDescription" placeholder="Updated header.css"></textarea>
+		<div class="main" ng-class="{'open': showSidebar}">
+			<h2>{{ entry.entryProject }}</h2>
+			<!-- <div class="well">
+				<h3>Filter Time Entries</h3>
+				<div class="row">
+					<div class="grid">
+						<div class="form-entry">
+							<label for="startDate" class="label">Start Date</label>
+							<input id="startDate" class="form-input" type="date" ng-model="startDate" />
+						</div>
+					</div>
+					<div class="grid">
+						<div class="form-entry">
+							<label for="endDate" class="label">End Date</label>
+							<input id="endDate" class="form-input" type="date" ng-model="endDate" />
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<table>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Hours</th>
+						<th class="desc">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="entry in entries | orderBy:'entryDate':true | filter:entry.entryProject">
+						<td>{{ entry.entryDate }}</td>
+						<td>{{ entry.entryTime }}</td>
+						<td>{{ entry.entryDescription }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<div class="form-entry">
-			<input type="submit" value="Submit Entry" />
-		</div>
-	</form>
-
-	<div ng-repeat="entry in entries | orderBy:'entryDate':true">
-		{{ entry.entryDate }}
-		{{ entry.entryTime }}
-		{{ entry.entryDescription }}
-	</div>
-
-	
-	
-	
-	
-	
+	</div>	
 </div>
